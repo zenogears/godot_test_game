@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/231 THE IRON MAIDEN.ogg-2457b9855329001d5f2744849284e85f.oggstr"
+
+[deps]
+
+source_file="res://Music/231 THE IRON MAIDEN.ogg"
+dest_files=[ "res://.import/231 THE IRON MAIDEN.ogg-2457b9855329001d5f2744849284e85f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
