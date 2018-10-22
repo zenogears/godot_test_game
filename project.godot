@@ -35,6 +35,7 @@ ui_select=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name"
 
 [locale]
 
+fallback="ru"
 locale_filter=[ 0, [ "en", "ru" ] ]
 
 [rendering]

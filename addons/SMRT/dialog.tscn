@@ -30,7 +30,7 @@ tracks/0/keys = {
 [sub_resource type="Theme" id=2]
 
 
-[node name="NinePatchRect" type="NinePatchRect"]
+[node name="NinePatchRect" type="NinePatchRect" index="0"]
 
 pause_mode = 2
 anchor_left = 0.0
@@ -131,7 +131,8 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 theme = SubResource( 2 )
 bbcode_enabled = true
-bbcode_text = "HELLO THERE CHILDREN! [b]How are you doing?[/b]"
+bbcode_text = "HELLO THERE CHILDREN! [b]How are you doing?[/b]
+Привет!"
 visible_characters = -1
 percent_visible = 1.0
 meta_underlined = true
@@ -141,7 +142,7 @@ scroll_active = true
 scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
-_sections_unfolded = [ "Anchor", "BBCode", "Margin", "Rect", "Theme", "custom_fonts" ]
+_sections_unfolded = [ "Anchor", "BBCode", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_fonts" ]
 
 [node name="anim" type="AnimationPlayer" parent="." index="5"]
 
