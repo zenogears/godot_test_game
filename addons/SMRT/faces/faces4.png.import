@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Linux-Mario_128x128.png-128x128.png-77911777f967eaaaeacd7b225f0a807a.stex"
+path="res://.import/faces4.png-ba13b7fa7512ec037fde94a2e5e00571.stex"
 
 [deps]
 
-source_file="res://addons/SMRT/faces/Linux-Mario_128x128.png-128x128.png"
-dest_files=[ "res://.import/Linux-Mario_128x128.png-128x128.png-77911777f967eaaaeacd7b225f0a807a.stex" ]
+source_file="res://addons/SMRT/faces/faces4.png"
+dest_files=[ "res://.import/faces4.png-ba13b7fa7512ec037fde94a2e5e00571.stex" ]
 
 [params]
 

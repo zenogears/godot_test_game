@@ -81,7 +81,7 @@ onready var textButtons = get_node("VBoxContainer/TextPanel/VBoxContainer/HBoxCo
 onready var enableQuestion = get_node("VBoxContainer/CheckButton")
 onready var question = get_node("VBoxContainer/question")
 onready var choicesNumber = get_node("VBoxContainer/question/VBoxContainer/choicesNumber")
-onready var options = question.get_node("VBoxContainer/GridContainer")
+onready var options = question.get_node("VBoxContainer/GridContainer/VBoxContainer")
 onready var option = options.get_child(0).duplicate()
 var messages
 # Global vars

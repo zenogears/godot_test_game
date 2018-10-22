@@ -8,21 +8,27 @@ func _ready():
 	$LoosePanel.hide()
 	global.level_scores = 0
 	$Global_Scores.text = 'All Scores: ' + str(global.global_scores)
-	SMRT.connect("dialog_control", self, "do_things")
+	#SMRT.connect("dialog_control", self, "do_things")
 	show_smrt()
-	
+
+func _on_dialog_dialog_control( info ):
+	print(info.answer)
 
 func show_smrt():
-	if global.dialogs == 0:
+	if global.dialogs == 0 and global.current_stage == 1:
 		global.dialogs = 1
 		get_tree().paused = true
 		SMRT.show_text("INTRO","OLD MAN", 0)
-		
-		
-	elif global.dialogs == 1:
+
+	elif global.dialogs == 1 and global.current_stage == 2:
 		global.dialogs = 2
 		get_tree().paused = true
 		SMRT.show_text("INTRO","Freddie", 0)
+
+	elif global.dialogs == 2 and global.current_stage == 3:
+		global.dialogs = 3
+		get_tree().paused = true
+		SMRT.show_text("INTRO","New", 0)
     
 
 func _process(delta):

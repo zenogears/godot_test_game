@@ -310,8 +310,9 @@ func show_text(chapter, dialog, start_at = 0):
 		
 		elif position==2:
 			rect_position = Vector2(0,screen_res.y-(get_size().y))
-		var size = rect_size.x
-		face_v_pos = rect_size.y/2 - (texture_height/2)
+		var size = rect_size.x + 2
+		## FACE POSITION!
+		face_v_pos = rect_size.y - 12 - (texture_height/2)
 		print("The text is: ", textObj.text)
 		if show_debug_messages:
 			print("FACE V POS ", face_v_pos)
@@ -329,10 +330,12 @@ func show_text(chapter, dialog, start_at = 0):
 			face.position = Vector2(8+texture_width/2,face_v_pos)
 			face.flip_h  = false
 			face.visible = true
+			#Right side image
 		elif side == 2:
 			textObj.margin_left = dimensions.text_margin.left
-			textObj.margin_right = texture_width + texture_width/3
-			face.position = Vector2(rect_size.x-texture_width-8,face_v_pos)
+			## WTF?
+			textObj.margin_right = - texture_width + texture_width/32
+			face.position = Vector2(rect_size.x-texture_width+50,face_v_pos)
 			face.flip_h = true
 		while textObj.get_total_character_count() > textObj.get_visible_characters():
 			if not typewriter:
@@ -416,11 +419,11 @@ func question(answer_array):
 		b.add_font_override("font_selected", font)
 		btn_answers.add_child(b)
 		b.connect("pressed",self,"selected_answer",[index])
-		if index > 0:
-			var last_child = btn_answers.get_child(index-1)
-			b.set_focus_neighbour(MARGIN_TOP,last_child.get_path())
-			btn_answers.rect_size.y += b.rect_size
-			index+=1
+		#if index > 0:
+		#	var last_child = btn_answers.get_child(index-1)
+		#	b.set_focus_neighbour(MARGIN_TOP,last_child.get_path())
+		#	btn_answers.rect_size.y += b.rect_size
+		index+=1
 	
 	yield(get_tree(),"idle_frame")
 	btn_answers.get_children()[0].grab_focus()
