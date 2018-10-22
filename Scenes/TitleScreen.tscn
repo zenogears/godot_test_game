@@ -9,7 +9,7 @@
 [ext_resource path="res://Scripts/Exit.gd" type="Script" id=7]
 [ext_resource path="res://Music/intro0.ogg" type="AudioStream" id=8]
 
-[node name="TitleScreen" type="Control"]
+[node name="TitleScreen" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
