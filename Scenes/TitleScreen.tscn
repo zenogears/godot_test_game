@@ -26,7 +26,7 @@ size_flags_vertical = 1
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
-position = Vector2( 548.46, 331.691 )
+position = Vector2( 525.904, 362.449 )
 scale = Vector2( 0.60399, 0.677665 )
 texture = ExtResource( 1 )
 

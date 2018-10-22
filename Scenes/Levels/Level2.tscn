@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Goal.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=8]
 [ext_resource path="res://Music/231 THE IRON MAIDEN.ogg" type="AudioStream" id=9]
 [ext_resource path="res://Scenes/Box.tscn" type="PackedScene" id=10]
+[ext_resource path="res://addons/SMRT/dialog.tscn" type="PackedScene" id=11]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -163,7 +164,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="WinPanel" type="Panel" parent="." index="7"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -196,7 +196,8 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_constants/shadow_offset_x = 5
-text = "You Win!"
+text = "You Win!
+Enter to Next?"
 align = 1
 valign = 1
 percent_visible = 1.0
@@ -206,7 +207,6 @@ _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Material", "Pause"
 
 [node name="LoosePanel" type="Panel" parent="." index="8"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -240,7 +240,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_constants/shadow_offset_x = 5
 text = "You Loose!
-Enter for restart level"
+Esc for restart level"
 align = 1
 valign = 1
 percent_visible = 1.0
@@ -333,6 +333,9 @@ _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
 [node name="Boxes" type="Spatial" parent="." index="13"]
 
+pause_mode = 2
+_sections_unfolded = [ "Pause" ]
+
 [node name="Box" parent="Boxes" index="0" instance=ExtResource( 10 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 41.5, 1.5, 20.5 )
@@ -344,6 +347,20 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 8, -2 )
 [node name="Box3" parent="Boxes" index="2" instance=ExtResource( 10 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 10.5, -6.49999 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="14"]
+
+pause_mode = 2
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+_sections_unfolded = [ "Pause" ]
+
+[node name="dialog" parent="CanvasLayer" index="0" instance=ExtResource( 11 )]
+
+visible = false
 
 [connection signal="body_entered" from="Loose" to="." method="_on_Loose_body_entered"]
 

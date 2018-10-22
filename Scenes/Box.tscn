@@ -67,10 +67,11 @@ subdivide_depth = 0
 
 extents = Vector3( 1, 1, 1 )
 
-[node name="Box" type="Area" groups=[
+[node name="Box" type="Area" index="0" groups=[
 "coin",
 ]]
 
+pause_mode = 2
 input_ray_pickable = false
 input_capture_on_drag = false
 space_override = 0
@@ -92,7 +93,7 @@ reverb_bus_name = "Master"
 reverb_bus_amount = 0.0
 reverb_bus_uniformity = 0.0
 script = ExtResource( 1 )
-_sections_unfolded = [ "Audio Bus", "Collision", "Reverb Bus", "Transform", "Visibility" ]
+_sections_unfolded = [ "Audio Bus", "Collision", "Pause", "Reverb Bus", "Transform", "Visibility" ]
 
 [node name="MeshInstance" type="MeshInstance" parent="." index="0"]
 

@@ -1,16 +1,32 @@
 extends Spatial
 
 var win = false
+onready var SMRT = get_node("CanvasLayer/dialog")
 
 func _ready():
 	$WinPanel.hide()
 	$LoosePanel.hide()
 	global.level_scores = 0
 	$Global_Scores.text = 'All Scores: ' + str(global.global_scores)
+	SMRT.connect("dialog_control", self, "do_things")
+	show_smrt()
 	
 
+func show_smrt():
+	if global.dialogs == 0:
+		global.dialogs = 1
+		get_tree().paused = true
+		SMRT.show_text("INTRO","OLD MAN", 0)
+		
+		
+	elif global.dialogs == 1:
+		global.dialogs = 2
+		get_tree().paused = true
+		SMRT.show_text("INTRO","Freddie", 0)
+    
+
 func _process(delta):
-	if Input.is_action_just_pressed("ui_accept") and not win:
+	if Input.is_action_just_pressed("ui_cancel") and not win:
 		get_tree().reload_current_scene()
 	elif Input.is_action_just_pressed("ui_accept") and win:
 		global.global_scores += global.level_scores

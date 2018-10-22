@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Goal.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=8]
 [ext_resource path="res://Music/231 THE IRON MAIDEN.ogg" type="AudioStream" id=9]
 [ext_resource path="res://Scenes/Box.tscn" type="PackedScene" id=10]
+[ext_resource path="res://addons/SMRT/dialog.tscn" type="PackedScene" id=11]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -114,7 +115,6 @@ _sections_unfolded = [ "Transform" ]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.5, 11.1178, 2.28089e-06 )
 mass = 30.0
-can_sleep = false
 linear_damp = 0.8
 angular_damp = 0.8
 _sections_unfolded = [ "Collision" ]
@@ -154,7 +154,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="WinPanel" type="Panel" parent="." index="7"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -187,7 +186,8 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_constants/shadow_offset_x = 5
-text = "You Win!"
+text = "You Win!
+Enter to get to the next level"
 align = 1
 valign = 1
 percent_visible = 1.0
@@ -197,7 +197,6 @@ _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Material", "Pause"
 
 [node name="LoosePanel" type="Panel" parent="." index="8"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -231,7 +230,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_constants/shadow_offset_x = 5
 text = "You Loose!
-Enter for restart level"
+Escape to restart level"
 align = 1
 valign = 1
 percent_visible = 1.0
@@ -334,6 +333,22 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4.5, 9 )
 [node name="Box3" parent="Spatial" index="2" instance=ExtResource( 10 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5, 6.5, -6.5 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="14"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="dialog" parent="CanvasLayer" index="0" instance=ExtResource( 11 )]
+
+visible = false
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 1023.0
+margin_bottom = 200.0
 
 [connection signal="body_entered" from="Loose" to="." method="_on_Loose_body_entered"]
 

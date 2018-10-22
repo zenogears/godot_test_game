@@ -373,7 +373,6 @@ func show_text(chapter, dialog, start_at = 0):
 	emit_signal("finished")
 	beep_pitch = 1.0
 	visible = false
-	get_tree().paused = false
 
 func question(answer_array):
 	if show_debug_messages:
