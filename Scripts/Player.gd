@@ -42,4 +42,11 @@ func _physics_process(delta):
 #			if collision.collider is RigidBody:
 #				collision.collider.apply_impulse(collision.position, -collision.normal * 0.5)
 	
+func save():
+	var save_dict = {
+		player_stats = {
+			jump = jump
+				}
+		}
+	return save_dict
 	

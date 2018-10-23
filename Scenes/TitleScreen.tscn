@@ -2,21 +2,21 @@
 
 [ext_resource path="res://Sprites/b7424ae73b6c904.jpg" type="Texture" id=1]
 [ext_resource path="res://Sprites/test_logo_by_gypsy9rblx-d5mnvq2.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/New Game.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/MenuButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/New Game.gd" type="Script" id=4]
-[ext_resource path="res://Scenes/Options.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scripts/LoadGame.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/Exit.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scripts/Exit.gd" type="Script" id=7]
 [ext_resource path="res://Music/intro0.ogg" type="AudioStream" id=8]
 
-[node name="TitleScreen" type="Control" index="0"]
+[node name="TitleScreen" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 1027.0
+margin_bottom = 603.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -106,23 +106,41 @@ _sections_unfolded = [ "Material", "Mouse", "Size Flags", "Visibility", "custom_
 
 [node name="NewGame" parent="Menu/CenterRow/Buttons" index="0" instance=ExtResource( 3 )]
 
+editor/display_folded = true
 margin_top = 13.0
 margin_right = 455.0
 margin_bottom = 73.0
+clip_text = true
 script = ExtResource( 4 )
 
-[node name="Options" parent="Menu/CenterRow/Buttons" index="1" instance=ExtResource( 5 )]
+[node name="Label" parent="Menu/CenterRow/Buttons/NewGame" index="0"]
 
+text = "New  Game"
+
+[node name="Load" parent="Menu/CenterRow/Buttons" index="1" instance=ExtResource( 3 )]
+
+editor/display_folded = true
 margin_top = 93.0
 margin_right = 455.0
 margin_bottom = 153.0
+clip_text = true
+script = ExtResource( 5 )
+
+[node name="Label" parent="Menu/CenterRow/Buttons/Load" index="0"]
+
+text = "Load Game"
 
 [node name="Exit" parent="Menu/CenterRow/Buttons" index="2" instance=ExtResource( 6 )]
 
+editor/display_folded = true
 margin_top = 173.0
 margin_right = 455.0
 margin_bottom = 233.0
 script = ExtResource( 7 )
+
+[node name="Label" parent="Menu/CenterRow/Buttons/Exit" index="0"]
+
+text = "Exit Game"
 
 [node name="CenterContainer" type="CenterContainer" parent="Menu/CenterRow" index="1"]
 
@@ -155,6 +173,11 @@ area_mask = 1
 
 [connection signal="pressed" from="Menu/CenterRow/Buttons/NewGame" to="Menu/CenterRow/Buttons/NewGame" method="_on_NewGame_pressed"]
 
+[connection signal="pressed" from="Menu/CenterRow/Buttons/Load" to="Menu/CenterRow/Buttons/Load" method="_on_Load_pressed"]
+
 [connection signal="pressed" from="Menu/CenterRow/Buttons/Exit" to="Menu/CenterRow/Buttons/Exit" method="_on_Exit_pressed"]
 
 
+[editable path="Menu/CenterRow/Buttons/NewGame"]
+[editable path="Menu/CenterRow/Buttons/Load"]
+[editable path="Menu/CenterRow/Buttons/Exit"]
