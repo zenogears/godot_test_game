@@ -7,7 +7,7 @@ var velocity = Vector3()
 var jump = 10
 
 func _ready():
-	add_collision_exception_with($KinematicBody)
+	pass
 
 func _physics_process(delta):
 	direction = Vector3(0,0,0)

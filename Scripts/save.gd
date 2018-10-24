@@ -26,7 +26,7 @@ func load_game():
 	print(data)
 	
 	for node_path in data.keys():
-		var node = get_node(node_path)
+		#var node = get_node(node_path)
 		
 		for attribute in data[node_path]:
 			if attribute == 'progress_data':
