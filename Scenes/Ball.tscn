@@ -109,7 +109,9 @@ mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="CollisionShape" type="CollisionShape" parent="." index="1"]
+[node name="CollisionShape" type="CollisionShape" parent="." index="1" groups=[
+"1",
+]]
 
 shape = SubResource( 3 )
 disabled = false

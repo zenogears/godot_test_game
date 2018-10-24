@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Scores.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/SMRT/dialog.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Fonts/fallout_14.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Scenes/Panels.tscn" type="PackedScene" id=4]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+pause_mode = 2
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+_sections_unfolded = [ "Pause" ]
+
+[node name="Scores" parent="." index="0" instance=ExtResource( 1 )]
+
+grow_horizontal = 0
+grow_vertical = 0
+_sections_unfolded = [ "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Rect", "Size Flags", "Theme", "Visibility" ]
+
+[node name="dialog" parent="." index="1" instance=ExtResource( 2 )]
+
+visible = false
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 1023.0
+margin_bottom = 200.0
+font = ExtResource( 3 )
+
+[node name="Panels" parent="." index="2" instance=ExtResource( 4 )]
+
+margin_left = 3.0
+margin_top = 2.0
+margin_bottom = 602.0
+grow_horizontal = 0
+grow_vertical = 0
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Mouse", "Rect", "Size Flags", "Theme" ]
+
+

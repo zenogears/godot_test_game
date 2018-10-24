@@ -1,13 +1,12 @@
 extends Spatial
 
 var win = false
-onready var SMRT = get_node("CanvasLayer/dialog")
+onready var SMRT = $"CanvasLayer/dialog"
 var current_stage
-onready var WinPanel = $'Panels/WinPanel'
-onready var LoosePanel = $'Panels/LoosePanel'
-onready var Level_Scores = $'Scores/VBoxContainer/Level_Scores'
-onready var Global_Scores = $'Scores/VBoxContainer/Global_Scores'
-
+onready var WinPanel = $'CanvasLayer/Panels/WinPanel'
+onready var LoosePanel = $'CanvasLayer/Panels/LoosePanel'
+onready var Level_Scores = $'CanvasLayer/Scores/VBoxContainer/Level_Scores'
+onready var Global_Scores = $'CanvasLayer/Scores/VBoxContainer/Global_Scores'
 
 func _ready():
 	current_stage = int(get_tree().get_current_scene().get_name().replace('Level',''))
@@ -16,7 +15,9 @@ func _ready():
 	LoosePanel.hide()
 	global.level_scores = 0
 	Global_Scores.text = global.scoresAllText + str(global.global_scores)
-	#SMRT.connect("dialog_control", self, "do_things")
+	SMRT.connect("dialog_control", self, "do_things")
+	ProjectSettings.playerName = 'Test'
+	ProjectSettings.money = 1
 	show_smrt(current_stage)
 	
 
@@ -26,7 +27,7 @@ func _on_dialog_dialog_control( info ):
 func show_smrt(current_stage):
 	if global.dialogs == current_stage - 1:
 		global.dialogs = current_stage
-		#get_tree().paused = true
+		get_tree().paused = true
 		SMRT.show_text(global.dialog_stages[current_stage][0], global.dialog_stages[current_stage][1], global.dialog_stages[current_stage][2])
 
 func _process(delta):

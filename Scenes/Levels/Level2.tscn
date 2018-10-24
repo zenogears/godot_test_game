@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Goal.tscn" type="PackedScene" id=2]
@@ -10,11 +10,8 @@
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=8]
 [ext_resource path="res://Music/231 THE IRON MAIDEN.ogg" type="AudioStream" id=9]
 [ext_resource path="res://Scenes/Box.tscn" type="PackedScene" id=10]
-[ext_resource path="res://addons/SMRT/dialog.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Fonts/new_dynamicfont_12.tres" type="DynamicFont" id=12]
-[ext_resource path="res://assets/simple_skybox/pillars_1k.hdr" type="Texture" id=13]
-[ext_resource path="res://Scenes/Panels.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Scenes/Scores.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/simple_skybox/pillars_1k.hdr" type="Texture" id=11]
+[ext_resource path="res://Scenes/CanvasLayer.tscn" type="PackedScene" id=12]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -23,7 +20,7 @@ extents = Vector3( 1, 1, 1 )
 [sub_resource type="PanoramaSky" id=2]
 
 radiance_size = 4
-panorama = ExtResource( 13 )
+panorama = ExtResource( 11 )
 
 [sub_resource type="Environment" id=3]
 
@@ -310,28 +307,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 11, -1 )
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 12, -17 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="10"]
-
-pause_mode = 2
-layer = 1
-offset = Vector2( 0, 0 )
-rotation = 0.0
-scale = Vector2( 1, 1 )
-transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-_sections_unfolded = [ "Pause" ]
-
-[node name="dialog" parent="CanvasLayer" index="0" instance=ExtResource( 11 )]
-
-visible = false
-font = ExtResource( 12 )
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="11"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="10"]
 
 environment = SubResource( 3 )
 
-[node name="Panels" parent="." index="12" instance=ExtResource( 14 )]
-
-[node name="Scores" parent="." index="13" instance=ExtResource( 15 )]
+[node name="CanvasLayer" parent="." index="11" instance=ExtResource( 12 )]
 
 [connection signal="body_entered" from="Loose" to="." method="_on_Loose_body_entered"]
 

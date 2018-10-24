@@ -17,4 +17,4 @@ func _on_Box_body_entered(body):
 	if body is KinematicBody:
 		queue_free()
 		global.level_scores += 1
-		$'../../Scores/VBoxContainer/Level_Scores'.text = global.scoresLevelText + str(global.level_scores)
+		$'../../CanvasLayer/Scores/VBoxContainer/Level_Scores'.text = global.scoresLevelText + str(global.level_scores)

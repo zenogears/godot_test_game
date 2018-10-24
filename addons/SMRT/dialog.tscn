@@ -32,7 +32,7 @@ tracks/0/keys = {
 
 default_font = ExtResource( 8 )
 
-[node name="NinePatchRect" type="NinePatchRect" index="0"]
+[node name="NinePatchRect" type="NinePatchRect"]
 
 pause_mode = 2
 anchor_left = 0.0

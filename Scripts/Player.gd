@@ -35,12 +35,12 @@ func _physics_process(delta):
 	if is_on_floor() and Input.is_key_pressed(KEY_SPACE):
 		velocity.y = jump
 
-#	var hitCount = get_slide_count()
-#	if hitCount > 0:
-#		for i in range(hitCount):
-#			var collision = get_slide_collision(i)
-#			if collision.collider is RigidBody:
-#				collision.collider.apply_impulse(collision.position, -collision.normal * 0.5)
+	var hitCount = get_slide_count()
+	if hitCount > 0:
+		for i in range(hitCount):
+			var collision = get_slide_collision(i)
+			if collision.collider is RigidBody:
+				collision.collider.apply_impulse(collision.position, -collision.normal * 20)
 	
 func save():
 	var save_dict = {

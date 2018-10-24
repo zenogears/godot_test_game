@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Goal.tscn" type="PackedScene" id=2]
@@ -8,13 +8,11 @@
 [ext_resource path="res://Scenes/Ramp.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=8]
-[ext_resource path="res://Music/231 THE IRON MAIDEN.ogg" type="AudioStream" id=9]
-[ext_resource path="res://Scenes/Box.tscn" type="PackedScene" id=10]
-[ext_resource path="res://addons/SMRT/dialog.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Fonts/new_dynamicfont_12.tres" type="DynamicFont" id=12]
-[ext_resource path="res://assets/simple_skybox/table_mountain_1_1k.hdr" type="Texture" id=13]
-[ext_resource path="res://Scenes/Panels.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Scenes/Scores.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/Box.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/CanvasLayer.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/simple_skybox/table_mountain_1_1k.hdr" type="Texture" id=11]
+[ext_resource path="res://Scenes/AudioStreamPlayer.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Music/231 THE IRON MAIDEN.ogg" type="AudioStream" id=13]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -23,7 +21,7 @@ extents = Vector3( 1, 1, 1 )
 [sub_resource type="PanoramaSky" id=2]
 
 radiance_size = 2
-panorama = ExtResource( 13 )
+panorama = ExtResource( 11 )
 _sections_unfolded = [ "Resource" ]
 
 [sub_resource type="Environment" id=3]
@@ -32,10 +30,10 @@ background_mode = 2
 background_sky = SubResource( 2 )
 background_sky_custom_fov = 0.0
 background_color = Color( 0, 0, 0, 1 )
-background_energy = 1.0
+background_energy = 0.4
 background_canvas_max_layer = 0
 ambient_light_color = Color( 0, 0, 0, 1 )
-ambient_light_energy = 1.0
+ambient_light_energy = 0.4
 ambient_light_sky_contribution = 1.0
 fog_enabled = false
 fog_color = Color( 0.5, 0.6, 0.7, 1 )
@@ -104,7 +102,7 @@ adjustment_enabled = false
 adjustment_brightness = 1.0
 adjustment_contrast = 1.0
 adjustment_saturation = 1.0
-_sections_unfolded = [ "Background" ]
+_sections_unfolded = [ "Adjustments", "Auto Exposure", "Background", "DOF Far Blur", "DOF Near Blur", "Fog", "Glow", "SS Reflections", "SSAO", "Tonemap" ]
 
 [node name="Level1" type="Spatial" index="0" groups=[
 "persistent",
@@ -273,66 +271,36 @@ directional_shadow_depth_range = 0
 directional_shadow_max_distance = 200.0
 _sections_unfolded = [ "Light", "Pause", "Shadow" ]
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="8"]
+[node name="Spatial" type="Spatial" parent="." index="8"]
 
-pause_mode = 2
-stream = ExtResource( 9 )
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = true
-max_distance = 2000.0
-attenuation = 1.0
-bus = "Master"
-area_mask = 1
-_sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index" ]
+editor/display_folded = true
 
-[node name="Spatial" type="Spatial" parent="." index="9"]
-
-[node name="Box" parent="Spatial" index="0" instance=ExtResource( 10 )]
+[node name="Box" parent="Spatial" index="0" instance=ExtResource( 9 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -6 )
 
-[node name="Box2" parent="Spatial" index="1" instance=ExtResource( 10 )]
+[node name="Box2" parent="Spatial" index="1" instance=ExtResource( 9 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4.5, 9 )
 
-[node name="Box3" parent="Spatial" index="2" instance=ExtResource( 10 )]
+[node name="Box3" parent="Spatial" index="2" instance=ExtResource( 9 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5, 6.5, -6.5 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="10"]
+[node name="CanvasLayer" parent="." index="9" instance=ExtResource( 10 )]
 
-pause_mode = 2
-layer = 1
-offset = Vector2( 0, 0 )
-rotation = 0.0
-scale = Vector2( 1, 1 )
-transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-_sections_unfolded = [ "Pause" ]
-
-[node name="dialog" parent="CanvasLayer" index="0" instance=ExtResource( 11 )]
-
-visible = false
-margin_left = 3.0
-margin_top = 2.0
-margin_right = 1023.0
-margin_bottom = 200.0
-font = ExtResource( 12 )
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="11"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="10"]
 
 pause_mode = 2
 environment = SubResource( 3 )
 _sections_unfolded = [ "Pause" ]
 
-[node name="Panels" parent="." index="12" instance=ExtResource( 14 )]
+[node name="AudioStreamPlayer" parent="." index="11" instance=ExtResource( 12 )]
 
-[node name="Scores" parent="." index="13" instance=ExtResource( 15 )]
+stream = ExtResource( 13 )
 
 [connection signal="body_entered" from="Loose" to="." method="_on_Loose_body_entered"]
 
 [connection signal="body_entered" from="Goal/Area2" to="." method="_on_Area2_body_entered"]
-
-[connection signal="dialog_control" from="CanvasLayer/dialog" to="." method="_on_dialog_dialog_control"]
 
 
