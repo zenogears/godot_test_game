@@ -9,8 +9,12 @@ var scoresAllText = 'Всего кубов: '
 var scoresLevelText = 'Кубов на уровне: '
 
 func go_next_stage():
-	current_stage += 1
+	
 	if current_stage < len(dialog_stages) + 1:
-		get_tree().change_scene("res://Scenes/Levels/Level" + str(current_stage) + ".tscn")
+		go_scene("Levels/Level" + str(current_stage))
 	else:
-		get_tree().change_scene("res://Scenes/TitleScreen.tscn")
+		go_scene('TitleScreen')
+		
+func go_scene(_scene):
+	get_tree().change_scene("res://Scenes/"+_scene+".tscn")
+	

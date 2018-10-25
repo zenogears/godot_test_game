@@ -372,6 +372,7 @@ func show_text(chapter, dialog, start_at = 0):
 		print("SMRT finished displaying all the dialog")
 	emit_signal("finished")
 	beep_pitch = 1.0
+	## END OF DIALOGUE - Paused
 	visible = false
 
 func question(answer_array):

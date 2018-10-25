@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Goal.tscn" type="PackedScene" id=2]
@@ -12,7 +12,8 @@
 [ext_resource path="res://assets/simple_skybox/pink_sunrise_1k.hdr" type="Texture" id=10]
 [ext_resource path="res://Scenes/AudioStreamPlayer.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Music/231 THE IRON MAIDEN.ogg" type="AudioStream" id=12]
-[ext_resource path="res://Scenes/CanvasLayer.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/GUI.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Dialog.tscn" type="PackedScene" id=14]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -113,6 +114,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Loose" type="Area" parent="." index="0"]
 
+editor/display_folded = true
 transform = Transform( -30, 0, 1.3e-05, 0, 0.05, 0, 0, 0, -85.635, -11, -5.5, -10.4999 )
 input_ray_pickable = false
 input_capture_on_drag = false
@@ -213,6 +215,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.5, 9.5, 2.28089e-06 )
 
 [node name="Player" parent="." index="5" instance=ExtResource( 6 )]
 
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 5.90029, 3.0563, 0.0148377 )
 script = ExtResource( 7 )
 _sections_unfolded = [ "Axis Lock", "Collision", "Transform", "collision" ]
@@ -263,6 +266,8 @@ directional_shadow_max_distance = 200.0
 _sections_unfolded = [ "Light", "Shadow" ]
 
 [node name="Spatial" type="Spatial" parent="." index="7"]
+
+editor/display_folded = true
 
 [node name="Box" parent="Spatial" index="0" instance=ExtResource( 8 )]
 
@@ -317,7 +322,9 @@ environment = SubResource( 3 )
 
 stream = ExtResource( 12 )
 
-[node name="CanvasLayer" parent="." index="11" instance=ExtResource( 13 )]
+[node name="GUI" parent="." index="11" instance=ExtResource( 13 )]
+
+[node name="CanvasLayer" parent="." index="12" instance=ExtResource( 14 )]
 
 [connection signal="body_entered" from="Loose" to="." method="_on_Loose_body_entered"]
 

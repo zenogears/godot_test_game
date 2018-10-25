@@ -568,7 +568,6 @@ func agregate(text_id):
 	text.frame_position  = frame_position.get_selected()
 	text.face_position = face_position.get_selected()
 	text.face_frame = face_frame.get("value")
-	
 	text.typewriter = typewriter.get("pressed")
 	text.typewriter_speed = typewriter_speed.get("value")
 	text.beep = beep.get("pressed")
@@ -636,3 +635,12 @@ func clear_all():
 	currentDialog = null
 	currentText = null
 	pass
+
+
+
+func _on_FaceFrame_value_changed(value):
+	var pic_file = File.new().file_exists('res://addons/SMRT/faces/faces'+str(value+1)+'.png')
+	if (pic_file):
+		$"VBoxContainer/HBoxContainer/GridContainer/Face/VBoxContainer/Sprite".texture = load('res://addons/SMRT/faces/faces'+str(value+1)+'.png')
+	else:
+		$"VBoxContainer/HBoxContainer/GridContainer/Face/VBoxContainer/Sprite".texture = load('res://addons/SMRT/faces/noimage.png')

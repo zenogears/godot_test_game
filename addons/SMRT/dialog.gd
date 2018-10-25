@@ -377,6 +377,8 @@ func show_text(chapter, dialog, start_at = 0):
 	beep_pitch = 1.0
 	visible = false
 	get_tree().paused = false
+	$'../../GUI/Scores/VBoxContainer/Level_Scores'.show()
+	$'../../GUI/Scores/VBoxContainer/Global_Scores'.show()
 
 func question(answer_array):
 	if show_debug_messages:
