@@ -1,9 +1,8 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Music/The Passion HiFi - What We Came To Do.ogg" type="AudioStream" id=1]
+[ext_resource path="res://Music/Age_of_Mythology-chocolate_outline.ogg" type="AudioStream" id=1]
 
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" index="0"]
 
 stream = ExtResource( 1 )
 volume_db = 0.0

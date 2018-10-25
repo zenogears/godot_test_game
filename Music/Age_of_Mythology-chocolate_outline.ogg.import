@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Age_of_Mythology-chocolate_outline.ogg-fe12cbae1bdbbba8a6604ebf9d141315.oggstr"
+
+[deps]
+
+source_file="res://Music/Age_of_Mythology-chocolate_outline.ogg"
+dest_files=[ "res://.import/Age_of_Mythology-chocolate_outline.ogg-fe12cbae1bdbbba8a6604ebf9d141315.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -105,7 +105,7 @@ adjustment_contrast = 1.0
 adjustment_saturation = 1.0
 _sections_unfolded = [ "Adjustments", "Auto Exposure", "Background", "DOF Far Blur", "DOF Near Blur", "Fog", "Glow", "SS Reflections", "SSAO", "Tonemap" ]
 
-[node name="Level1" type="Spatial" groups=[
+[node name="Level1" type="Spatial" index="0" groups=[
 "persistent",
 ]]
 
@@ -274,6 +274,8 @@ _sections_unfolded = [ "Light", "Pause", "Shadow" ]
 
 [node name="Spatial" type="Spatial" parent="." index="8"]
 
+editor/display_folded = true
+
 [node name="Box" parent="Spatial" index="0" instance=ExtResource( 9 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -6 )
@@ -299,6 +301,16 @@ stream = ExtResource( 12 )
 [node name="GUI" parent="." index="11" instance=ExtResource( 13 )]
 
 [node name="CanvasLayer" parent="." index="12" instance=ExtResource( 14 )]
+
+editor/display_folded = true
+
+[node name="Option" type="CanvasLayer" parent="." index="13"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [connection signal="body_entered" from="Loose" to="." method="_on_Loose_body_entered"]
 
